@@ -53,59 +53,53 @@
             last one goes here
           </div>
         </div>
+        </div>
       </div>
     </div>
-    <div id="content">
-    <img src="images/ribbon.png" class="ribbon" alt="" />
-</div>
-    <footer></footer>
-    </footer>
+  </div>
 <!-- works in modern browsers -->
   
 </body>
+<footer></footer>
 <script>
 const container = document.body;
-      const tabOne = document.querySelector(".link1");
-      const tabTwo = document.querySelector(".link2");
-      const tabThree = document.querySelector(".link3");
-      const tabFour = document.querySelector(".link4");
-      const tabFive = document.querySelector(".link5");
-      const tabs = document.querySelectorAll(".link");
-      tabOne.classList.add("tabone");
-      tabOne.addEventListener("click", () => {
-        tabOne.classList.add("tabone");
-        tabThree.classList.remove("tabone");
-        tabTwo.classList.remove("tabone");
-        tabFour.classList.remove("tabone");
-        tabFive.classlist.remove("tabone");
-      });
-      tabTwo.addEventListener("click", () => {
-        tabTwo.classList.add("tabone");
-        tabThree.classList.remove("tabone");
-        tabOne.classList.remove("tabone");
-        tabFour.classList.remove("tabone");
-        tabFive.classlist.remove("tabone");
-      });
-      tabThree.addEventListener("click", () => {
-        tabThree.classList.add("tabone");
-        tabOne.classList.remove("tabone");
-        tabTwo.classList.remove("tabone");
-        tabFour.classList.remove("tabone");
-        tabFive.classlist.remove("tabone");
-      });
-      tabFour.addEventListener("click", () => {
-        tabFour.classList.add("tabone");
-        tabThree.classList.remove("tabone");
-        tabOne.classList.remove("tabone");
-        tabTwo.classList.remove("tabone");
-        tabFive.classlist.remove("tabone");
-      });
-      tabFive.addEventListener("click", () => {
-        tabFive.classList.add("tabone");
-        tabOne.classList.remove("tabone");
-        tabTwo.classList.remove("tabone");
-        tabThree.classList.remove("tabone");
-        tabFour.classList.remove("tabone");
-      });
-      
+const tabs = document.querySelectorAll(".link");
+const items = document.querySelectorAll(".item");
+
+function setActiveTab(tabIndex) {
+  tabs.forEach((tab, index) => {
+    if (index === tabIndex) {
+      tab.classList.add("tabone");
+    } else {
+      tab.classList.remove("tabone");
+    }
+  });
+
+  items.forEach((item, index) => {
+    if (index === tabIndex) {
+      item.classList.add("active-item");
+      if (index === 0) {
+        item.classList.add("justified-item"); // Add the class for the "About" section
+      } else {
+        item.classList.remove("justified-item"); // Remove the class for other sections
+      }
+    } else {
+      item.classList.remove("active-item");
+    }
+  });
+}
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    setActiveTab(index);
+  });
+});
+
+// Set the "About" section as active by default when the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  setActiveTab(0); // 0 is the index of the "About" section in the items array
+});
+
+
+
 </script>

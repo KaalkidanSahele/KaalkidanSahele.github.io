@@ -80,6 +80,14 @@ body {
     z-index: 2;
   }
 
+  .contentFont {
+      font-size: 40px;
+      font-family: 'Tektur', sans-serif;
+      color: black;
+      z-index: 2;
+    }
+
+
   .smallFont{
     font-family: 'IM Fell DW Pica', serif;
     z-index: 10;
@@ -291,3 +299,10 @@ h4 {
       top: -130px;
       left: -50px;
   }
+
+  .Scroll
+{
+  height:224px;
+   overflow:auto;
+    background:#fff;
+}

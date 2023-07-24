@@ -56,6 +56,7 @@
                 <ul style="padding-left: 30px;">
                   <li>Algorithms and Complexity Theory</li>
                   <li>Quantum Computing</li>
+                  <li>Mathematics</li>
                   <li>Cryptography</li>
                   <li>Machine Learning</li>
                 </ul>
@@ -63,13 +64,81 @@
             </div>
           </div>
           <div class="item 2" id="skills&experience-section">
-            more sample text
+            <div class="Scroll">
+              <div class="contentFont" style="padding-top:20px">
+                <h2>Skills</h2>
+              </div>
+              <h3>
+                <ul style="padding-left: 30px;">
+                  <li><b>Python (Advanced): </b> Have worked with ScikitLearn, Django, PyGame & Data Cleaning and Analysis tools</li>
+                  <li><b>SQL (Advanced):</b> Have worked with database management (via Heroku & AWS)</li>
+                  <li><b>Linux Command Line Interface (Advanced)</b></li>
+                  <li><b>JavaScript (Intermediate): </b> Have worked with node.js, fetch API, DOM manipulation/ front end web development & played with a bit of ReactJS </li>
+                  <li><b>HTML5 & CSS3 (Intermediate):</b> Used alongside web development projects </li>
+                  <li><b>Haskell (Confident Beginner):</b> Took a functional programming sub module during 2nd Year
+                  <li><b>C (Confident Beginner):</b> Took a Systems Programming sub module during 2nd Year</li>
+                  <li><b>C# (Confident Beginner): </b> Took an OOP sub module during 2nd year; also wrote various Unity scripts for <a href="#projects-section" class="link link3"> Software Engineering project</a></li>
+                </ul>
+              </h3>
+              <div class="contentFont" style="padding-top:20px">
+                <h2>Relevant Experience</h2>
+              </div>
+              <h3>
+                <ul style="padding-left: 30px;">
+                  <li><b>St.Aidans JCR CIO IT Officer: </b> 
+                    <ul>
+                      <li>Worked with AWS, Heroku and Wagtail to manage <a href="https://www.st-aidans.com/" class="link link3">St. Aidan's JCR CIO</a></li>
+                      <li>Aided with technological questions and struggles of the college</li>
+                    </ul>
+                  </li>
+                  <li>Durham University Lab Demonstrator</li>
+                </ul>
+              </h3>
+              <div class="contentFont" style="padding-top:10px">
+                <h2>Irrelevant Experience</h2>
+              </div>
+              <h3>
+                <ul style="padding-left: 30px;">
+                  <li><b>St. Aidan's Women's Basketball Co-Captain 22-23</b> 
+                    <ul>
+                      <li>Put those classical and mechanical physics lessons to good use </li>
+                    </ul>
+                  </li>
+                </ul>
+              </h3>
+            </div>
           </div>
           <div class="item 3" id="projects-section">
             even more sample text
           </div>
           <div class="item 4" id="awards-section">
-            hoping this works
+            <div class="contentFont" style="padding-top:10px">
+              <h2>Relevant Awards</h2>
+            </div>
+            <h3>
+              <ul style="padding-left: 30px;">
+                <li><b>Durham Inspired Computer Science Scholarship (Coleman Scholarship) </b> 
+                  <ul>
+                    <li>Courtesty of Mark Coleman</li>
+                    <li>Gave a talk as a scholar recipient at the Durham University Scholars Networking Event</li>
+                  </ul>
+                </li>
+              </ul>
+            </h3>
+            <div class="contentFont" style="padding-top:20px">
+              <h2>Irrelevant Awards</h2>
+            </div>
+            <h3>
+              <ul style="padding-left: 30px;">
+                <li><b>St. Theresa Y6 Spelling Bee Champion 2014</b> 
+                  <ul>
+                    <li>Winning word was "reference"</li>
+                    <li>I won a creme egg</li>
+                  </ul>
+                </li>
+                <li><b>All Saints Sixth Form: Most Likely to Win a Nobel Prize (2021)</b></li>
+              </ul>
+            </h3>
           </div>
           <div class="item 5" id="contact-section">
             last one goes here
@@ -87,7 +156,7 @@
 const container = document.body;
 const tabs = document.querySelectorAll(".link");
 const items = document.querySelectorAll(".item");
-
+// Function to set the active tab and content section
 function setActiveTab(tabIndex) {
   tabs.forEach((tab, index) => {
     if (index === tabIndex) {
@@ -100,17 +169,15 @@ function setActiveTab(tabIndex) {
   items.forEach((item, index) => {
     if (index === tabIndex) {
       item.classList.add("active-item");
-      if (index === 0) {
-        item.classList.add("justified-item"); // Add the class for the "About" section
-      } else {
-        item.classList.remove("justified-item"); // Remove the class for other sections
-      }
     } else {
       item.classList.remove("active-item");
     }
   });
+
+  activeTabIndex = tabIndex; // Update the activeTabIndex
 }
 
+// Add event listeners for the tabs
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => {
     setActiveTab(index);

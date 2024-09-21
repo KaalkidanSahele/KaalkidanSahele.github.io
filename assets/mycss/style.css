@@ -10887,7 +10887,7 @@ textarea.form-control-lg {
 }
 
 .menu {
-  background: transparent;
+  background: linear-gradient(to right, rgba(132, 122, 194, 0.61), rgba(21, 121, 143, 0.61));
 }
 .menu li {
   padding: 0 0.7rem;
@@ -11103,6 +11103,8 @@ textarea.form-control-lg {
 }
 
 /* Optional: Add a certificate-like font */
-
+.certificate-box {
+  color:#000; /* Change to a more formal font */
+}
 
 /*# sourceMappingURL=style.css.map */

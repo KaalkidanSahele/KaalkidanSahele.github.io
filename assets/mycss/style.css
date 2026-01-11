@@ -1,47 +1,37 @@
 :root {
-  --research-radius: 12px;
+  --research-radius: 50px;
   --research-shadow: 0 8px 20px rgba(16,24,40,0.08);
   --research-hero-height: 340px;
 }
 
+/* wrapper */
 .section {
   max-width: 980px;
   margin: 0 auto;
   padding: 24px;
 }
 
-/* HERO IMAGE */
+/* Parent container creates the rounded mask and shadow */
 .research-hero {
   position: relative;
   width: 100%;
   height: var(--research-hero-height);
   border-radius: var(--research-radius);
-  overflow: hidden;
+  overflow: hidden;              /* CRITICAL: clips the image to the radius */
   box-shadow: var(--research-shadow);
-  margin-bottom: 16px;
+  background: #fff;
 }
 
-.research-image {
-  width: 100%;
+/* Image fills the parent but doesn't inherit the portrait fixed sizing */
+.research-hero > img.research-image {
+  display: block;
+  width: 50%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: inherit;        /* safety fallback */
 }
 
-/* Overlay gradient */
-.research-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.05),
-    rgba(0,0,0,0.25)
-  );
-  z-index: 1;
-}
-
-/* Title on image */
+/* Title on top of image */
 .research-title {
   position: absolute;
   z-index: 2;
@@ -51,14 +41,8 @@
   padding: 10px 16px;
   font-size: 1.35rem;
   font-weight: 700;
+  color: #0f172a;
   background: rgba(255,255,255,0.92);
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-/* CARD */
-.research-card {
-  border-radius: var(--research-radius);
-  box-shadow: var(--research-shadow);
-  background: #fff;
 }

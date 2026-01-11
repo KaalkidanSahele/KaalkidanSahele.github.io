@@ -11107,4 +11107,48 @@ textarea.form-control-lg {
   color:#000; /* Change to a more formal font */
 }
 
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Background image */
+  background-image: url("../../images/intro-section-illustration.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Text color for contrast */
+  color: white;
+
+  /* Spacing */
+  padding: 0 20px;
+
+  /* Overlay using inset shadow (simpler than extra divs) */
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.35);
+}
+
+/* Ensure nav + buttons remain readable */
+.hero .institution {
+  color: rgba(255,255,255,0.9);
+}
+
+.hero nav.top a {
+  color: rgba(255,255,255,0.9);
+}
+
+.hero .cv-button {
+  border-color: rgba(255,255,255,0.9);
+  color: white;
+}
+
+.meta-strong {
+  font-size: 5.05rem;   /* slightly larger than normal meta */
+  font-weight: 700;     /* bold but academic (not heavy) */
+  color: var(--text);   /* optional: makes it read as important */
+}
+
 /*# sourceMappingURL=style.css.map */

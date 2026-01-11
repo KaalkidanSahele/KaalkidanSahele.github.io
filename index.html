@@ -3,141 +3,233 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Researcher portfolio for Kaalkidan Sahele - research interests, publications, selected projects, and contact." />
-  <title>Kaalkidan Sahele - DPhil Computer Science, University of Oxford</title>
+  <meta name="description" content="Kaalkidan Sahele — DPhil student at the University of Oxford. Research, talks, presentations, posters, conferences, and community work." />
+  <title>Kaalkidan Sahele — DPhil, University of Oxford</title>
   <link rel="icon" href="/assets/favicon.ico" />
+
   <style>
     :root{
       --content-max:1100px;
       --accent:#0b63a3;
       --muted:#6b7280;
       --text:#0f172a;
-      --bg:#ffffff;
+      --bg:#fbfaf9;
+      --card-bg:#ffffff;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       line-height:1.45;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);padding:28px 20px;display:flex;justify-content:center}
-    .wrap{max-width:var(--content-max);width:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);display:flex;justify-content:center}
+    .wrap{max-width:var(--content-max);width:100%;padding:24px}
 
-    /* Top header / hero */
-    header{display:flex;align-items:center;gap:24px;margin-bottom:20px}
-    .logo{width:72px;height:72px;border-radius:8px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
-    .title-group{flex:1}
-    h1{margin:0;font-size:1.6rem}
-    .institution{color:var(--muted);margin-top:6px}
+    /* HERO - centered name + small nav, portrait at right */
+    .hero{
+      min-height:78vh;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      align-items:center;
+      padding:40px 20px;
+    }
+    @media (max-width:980px){.hero{grid-template-columns:1fr;min-height:66vh;padding:28px 12px}}
 
-    nav.top{margin-top:14px}
-    nav.top a{color:var(--accent);text-decoration:none;margin-right:18px;font-weight:600}
+    .hero-left{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px}
+    .hero h1{font-size:2.4rem;margin:0;font-weight:600}
+    .hero .institution{color:var(--muted);font-size:1rem}
+    .mini-nav{margin-top:8px}
+    .mini-nav a{margin:0 10px;color:var(--muted);text-decoration:none;font-weight:600}
+    .cv-button{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid var(--accent);text-decoration:none;font-weight:600;color:var(--accent);margin-top:10px}
 
-    /* two-column layout: main + sidebar */
-    .layout{display:grid;grid-template-columns:1fr 320px;gap:28px}
-    @media (max-width:980px){.layout{grid-template-columns:1fr}}
+    .hero-right{display:flex;align-items:center;justify-content:center}
+    .portrait{width:320px;height:420px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(16,24,40,0.08)}
+    @media (max-width:980px){.portrait{width:200px;height:260px}}
 
-    .card{background:transparent;padding:0}
-    .hero-image{width:100%;height:260px;border-radius:10px;object-fit:cover;background:#e6eef8}
+    /* Main content sections */
+    main{padding:28px 0}
+    .section{margin-bottom:36px}
+    .card{background:var(--card-bg);padding:22px;border-radius:12px;box-shadow:0 8px 20px rgba(16,24,40,0.04)}
 
-    section h2{font-size:1.05rem;margin:0 0 12px 0}
-    .meta{color:var(--muted);font-size:0.95rem}
+    /* Research layout: image left, timeline right */
+    .research{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+    @media (max-width:900px){.research{grid-template-columns:1fr}}
+    .research .side-image{width:100%;border-radius:10px;height:360px;object-fit:cover}
+    .timeline{border-left:2px solid #eef3f8;padding-left:18px}
+    .event{margin-bottom:16px}
+    .event .title{font-weight:600}
+    .event .meta{color:var(--muted);font-size:0.95rem}
 
-    .updates{display:flex;flex-direction:column;gap:12px}
-    .update{padding:12px;border-radius:8px;background:#fbfdff;border:1px solid #eef6fb}
-    .small{font-size:0.9rem;color:var(--muted)}
+    /* Community cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.cards{grid-template-columns:1fr}}
+    .community-card{background:var(--card-bg);border-radius:12px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
+    .community-card img{width:100%;height:160px;object-fit:cover}
+    .community-card .body{padding:12px}
+    .community-card .title{font-weight:700;margin:0 0 6px 0}
+    .community-card .desc{color:var(--muted);font-size:0.95rem;margin:0}
 
-    ul.publications{list-style:none;padding:0;margin:0}
-    ul.publications li{margin-bottom:10px}
+    footer{padding:28px 0;color:var(--muted);text-align:center}
 
-    .links a{display:inline-block;margin-right:10px;margin-top:8px}
-
-    footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
-
+    /* Accessibility */
     a:focus{outline:3px solid #cfe9ff;outline-offset:3px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="logo">KS</div>
-      <div class="title-group">
-        <h1>[Your Name]</h1>
-        <div class="institution">University of Oxford - Department of Computer Science</div>
-        <nav class="top" aria-label="Primary">
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
-          <a href="#team">Team</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-left">
+        <div style="max-width:760px;">
+          <h1>Kaalkidan Sahele</h1>
+          <div class="institution">DPhil student — University of Oxford</div>
+          <nav class="mini-nav" aria-label="Primary links">
+            <a href="#research">Research</a>
+            <a href="#community">Community</a>
+            <a href="#awards">Awards</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div style="margin-top:12px;text-align:center">
+            <a class="cv-button" href="assets/resume/Kaal CV.pdf" download>Download CV</a>
+          </div>
+        </div>
       </div>
-      <div style="text-align:right">
-        <a class="cv-button" href="/assets/CV.pdf" download style="padding:8px 12px;border-radius:8px;border:1px solid var(--accent);text-decoration:none;font-weight:600">Download CV</a>
+
+      <div class="hero-right">
+        <!-- portrait on the right of the fold -->
+        <img src="images/intro-section-illustration.png" alt="Kaalkidan Sahele portrat" class="portrait">
       </div>
     </header>
 
-    <div class="layout">
-      <main>
-        <img src="/assets/hero.jpg" alt="Hero image" class="hero-image">
+    <main>
+        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            START SECTION 2 - RESEARCH ACTIVITIES & AFFILIATIONS 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <section id="affiliations" class="section">
+        <h2 style="margin-top:0">Research & Relevant Experience</h2>
 
-        <section id="research" style="margin-top:16px">
-          <h2>Research</h2>
-          <p class="meta">Would write a short summary of research interests and approach here, probs 3-5 lines.</p>
-          <p>Further description</p>
+        <div class="card" style="margin-top:12px">
+        <div class="timeline">
+        <div class="event">
+        <div class="title">University of Oxford - DPhil Student & Graduate Teaching Assistant </div>
+        <div class="meta">Oct 2025 – Present </br>
+            Department of Computer Science </br>
+            Supervisor: Prof. Bernardo Cuenca Grau and Prof. Ian Horrocks</div>
+       
+        </br>
+        <div class="meta-strong"> Previously: University of Durham - MSc/ MEng </br></div>
+        <div class="meta">Sep 2021 - Jun 2025 </br>
+          Computer Science </br>
+          First Class Honours</div>
+        </div>
+
+        <!-------------------------------- Conferences  ----------------------------------->
+        <div class="event">
+        <div class="title">MPLS AI & Ethics Conference</div>
+        <div class="meta">January 2026 </br>
+          "Towards Safe & Transparent Graph Neural Networks in Medicine" (Poster) </div>
+
+        </br>
+
+        <!-------------------------------- Other Talks  ----------------------------------->
+        <div class="event">
+        <div class="title"> OAISI Technical Roundtable</div>
+        <div class="meta">"Revealing Fragile Links and Unsafe Reasoning with Uncertainty Awareness in GNNs. <a href="#">Project</a></div></br>
+        Nov 2025
+        </div>
+
+        <div class="event">
+        <div class="title">SIDur PGR Symposium (7th Feb 2025)</div>
+        <div class="meta-strong"> Pulse Based Implementations of Encoder Circuits in Quantum Machine Learning</div></br>
+        Following work completed at the University of Toronto<a href="#">Project</a></div>
+        </div>
+
+        <div class="event">
+        <div class="title">Quantum Tea Seminar (University of Toronto)</div>
+        <div class="meta">Pulse Based Representations of Quantum Machine Learning<a href="#">Project</a></div></br>
+        Jun 2024
+        </div>
+
+
+        </div>
+        </div>
         </section>
+   
+      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            START SECTION 3 - COMMUNITY WORK
+        /////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <section id="community" class="section">
+        <h2>Community work</h2>
+        <p class="meta">GitHub Campus Expert activities, workshops, hackathons, outreach.</p>
 
-        <section id="publications" style="margin-top:20px">
-          <h2>Selected publications</h2>
-          <ul class="publications">
-            <li><strong>Kaalkidan Sahele</strong><em>PSample paper title</em>. <span class="small">Journal · DOI</span></li>
+        <div class="cards" style="margin-top:12px">
+          <a class="community-card" href="https://education.github.com/experts" target="_blank" rel="noopener">
+            <img src="/assets/update1.jpg" alt="Workshop">
+            <div class="body">
+              <div class="title">Intro to Git & GitHub workshop</div>
+              <p class="desc">Hands-on workshop for students (40+ attendees). Materials and exercises.</p>
+            </div>
+          </a>
+
+          <a class="community-card" href="https://example.org/hackathon" target="_blank" rel="noopener">
+            <img src="/assets/update2.jpg" alt="Hackathon mentorship">
+            <div class="body">
+              <div class="title">Hackathon mentorship</div>
+              <p class="desc">Mentored teams; helped with version control and project planning.</p>
+            </div>
+          </a>
+
+          <a class="community-card" href="https://example.org/outreach" target="_blank" rel="noopener">
+            <img src="/assets/update3.jpg" alt="Outreach">
+            <div class="body">
+              <div class="title">Outreach & school visits</div>
+              <p class="desc">Introduced pupils to programming and open-source collaboration.</p>
+            </div>
+          </a>
+
+         
+        </div>
+      </section>
+
+      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            START SECTION 4 - AWARDS & HONORS
+        /////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <section id="publications" class="section">
+        <h2>Selected publications</h2>
+        <div class="card" style="margin-top:12px">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="margin-bottom:10px"><strong>Kaalkidan Sahele</strong>, Coauthor. (2025). <em>Paper Title</em>. Journal · <a href="#">DOI</a></li>
+            <li style="margin-bottom:10px"><strong>Kaalkidan Sahele</strong>. (2024). <em>Conference Paper</em>. Conference · <a href="#">Link</a></li>
           </ul>
-          <p class="links"><a href="https://scholar.google.com" target="_blank" rel="noopener">Full publications</a> · <a href="https://orcid.org" target="_blank" rel="noopener">ORCID</a></p>
-        </section>
+          <p class="links" style="margin-top:12px"><a href="https://scholar.google.com" target="_blank" rel="noopener">Full publications</a> · <a href="https://orcid.org" target="_blank" rel="noopener">ORCID</a></p>
+        </div>
+      </section>
 
-        <section id="projects" style="margin-top:20px">
-          <h2>Selected projects</h2>
-          <div style="display:grid;gap:12px">
-            <div>
-              <h3>Project Title — <span class="small">2024</span></h3>
-              <p class="meta">Role, brief outcome, link to paper/code.</p>
-            </div>
-            <div>
-              <h3>Another Project — <span class="small">2023</span></h3>
-              <p class="meta">Short description, your contribution.</p>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <aside>
-        <section>
-          <h2>Recent updates</h2>
-          <div class="updates">
-            <div class="update"><div class="small">Jan 5, 2025</div><div>Presented work at Example Workshop — abstract accepted.</div></div>
-            <div class="update"><div class="small">Dec 12, 2024</div><div>Paper accepted to Journal X.</div></div>
-            <div class="update"><div class="small">Aug 19, 2024</div><div>Welcomed new PhD student.</div></div>
-          </div>
-        </section>
-
-        <section style="margin-top:18px">
-          <h2>Contact</h2>
+      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            START SECTION 5 - CONTACT
+        /////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <section id="contact" class="section">
+        <div class="card">
+          <h2 style="margin-top:0">Contact</h2>
           <p class="meta">Email</p>
-          <p><a href="mailto:your.email@institution.edu">your.email@institution.edu</a></p>
-          <p class="meta">Links</p>
-          <p><a href="https://github.com/KaalkidanSahele" target="_blank" rel="noopener">GitHub</a><br><a href="https://twitter.com/" target="_blank" rel="noopener">X / Twitter</a></p>
-        </section>
+          <p><a href="mailto:kaalkidan.sahele@ox.ac.uk">kaalkidan.sahele@lmh.ox.ac.uk</a></p>
+          <p class="meta" style="margin-top:12px">Links</p>
+          <p><a href="https://github.com/KaalkidanSahele" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/kaalkidan-sahele/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </section>
 
-        <section style="margin-top:18px">
-          <h2>Location</h2>
-          <p class="meta">[City, Country]</p>
-          <p>Institutional address or lab affiliation (optional).</p>
-        </section>
-      </aside>
-    </div>
+    </main>
 
     <footer>
-      <p>© <span id="year">2025</span> Kaalkidan Sahele.</p>
+      <p>© <span id="year">2025</span> Kaalkidan Sahele. Built for clarity and research dissemination.</p>
     </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // make entire card clickable for accessibility (link already on <a>)
+      // shouldn't need any js for this as <a> wraps the card
+  </script>
 </body>
 </html>

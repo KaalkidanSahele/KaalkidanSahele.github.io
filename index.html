@@ -20,7 +20,23 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);display:flex;justify-content:center}
+
+    body {
+      margin: 0;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #e9ecf7 85%,
+        #c9d1e6 100%
+      );
+      padding:24px;
+      font-family:Arial
+    }
+
     .wrap{max-width:var(--content-max);width:100%;padding:24px}
 
     /* HERO - centered name + small nav, portrait at right */
@@ -42,13 +58,13 @@
     .cv-button{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid var(--accent);text-decoration:none;font-weight:600;color:var(--accent);margin-top:10px}
 
     .hero-right{display:flex;align-items:center;justify-content:center}
-    .portrait{width:320px;height:420px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(16,24,40,0.08)}
+    .portrait{width:320px;height:420px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(16,24,40,0.5)}
     @media (max-width:980px){.portrait{width:200px;height:260px}}
 
     /* Main content sections */
     main{padding:28px 0}
     .section{margin-bottom:36px}
-    .card{background:var(--card-bg);padding:22px;border-radius:12px;box-shadow:0 8px 20px rgba(16,24,40,0.04)}
+    .card{background:var(--card-bg);padding:22px;border-radius:12px;box-shadow:0 8px 20px rgba(16,24,40,0.3)}
 
     /* Research layout: image left, timeline right */
     .research{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
@@ -74,7 +90,6 @@
     /* Accessibility */
     a:focus{outline:3px solid #cfe9ff;outline-offset:3px}
 
-  body{padding:24px;background:#f3f4f6;font-family:Arial}
 
   /* Wrapper that controls width for BOTH image and card */
   .research-wrapper {
@@ -272,19 +287,24 @@
                             START SECTION 4 - AWARDS & HONORS
         /////////////////////////////////////////////////////////////////////////////////////////////////////-->
       <section id="awards" class="section">
-        <h2>Awards</h2>
-        <div class="card" style="margin-top:12px">
-          <ul style="list-style:none;padding:0;margin:0">
-            <li style="margin-bottom:10px"><strong>Oxford Graduate Scholarship (through the Black Academic Futures programme)</strong></li>
-            <li style="margin-bottom:10px"><strong>Scott Logic Prize for Outstanding Contribution to the Durham Computer Science Community 2025</strong></li>
-            <li style="margin-bottom:10px"><strong>Professor Sue Black Prize for Outstanding Contribution to Durham University Women in Technology</strong></li>
-            <li style="margin-bottom:10px"><strong>MITACS Certificate of Completion 2024</strong></li>
-            <li style="margin-bottom:10px"><strong>Durham Inspired Coleman Scholarship 2021-25 (one recipient per cohort)</strong></li>
-          <p> Irrelevant Awards </p>
-          <li style="margin-bottom:10px"><strong>Spelling Bee Champion 2014 (St. Theresa Catholic Primary School)</strong></li>
-          </ul>
-        </div>
-      </section>
+      <h2>Awards & Honours</h2>
+      <div class="card" style="margin-top:12px">
+        <ul>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>Oxford Graduate Scholarship (through the Black Academic Futures programme)</strong></li>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>Scott Logic Prize for Outstanding Contribution to the Durham Computer Science Community 2025</strong></li>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>Professor Sue Black Prize for Outstanding Contribution to Durham University Women in Technology</strong></li>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>MITACS Certificate of Completion 2024</strong></li>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>Durham Inspired Coleman Scholarship 2021-25 (one recipient per cohort)</strong></li>
+        </ul>
+
+        <p style="margin-top:16px;">Irrelevant Awards</p>
+
+        <ul>
+          <li  style="list-style-image: url('images/award-symbol.svg')"><strong>Spelling Bee Champion 2014 (St. Theresa Catholic Primary School)</strong></li>
+        </ul>
+      </div>
+    </section>
+
 
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
                             START SECTION 5 - CONTACT
@@ -296,7 +316,7 @@
           <p><a href="mailto:kaalkidan.sahele@ox.ac.uk">kaalkidan.sahele@lmh.ox.ac.uk</a></p>
           <p class="meta" style="margin-top:12px">Links</p>
           <p><a href="https://github.com/KaalkidanSahele" target="_blank" rel="noopener">GitHub</a> ·
-             <a href="https://www.linkedin.com/in/kaalkidan-sahele/" target="_blank" rel="noopener">LinkedIn</a>
+             <a href="https://www.linkedin.com/in/kaalkidan-sahele/" target="_blank" rel="noopener">LinkedIn</a> ·
              <a href="https://scholar.google.com"  target="_blank" rel="noopener">Google Scholar</a> ·
              <a href="https://orcid.org" target="_blank" rel="noopener">ORCiD</a> 
             </p>
@@ -308,7 +328,7 @@
     </main>
 
     <footer>
-      <p>© <span id="year">2025</span> Kaalkidan Sahele. Built for clarity and research dissemination.</p>
+      <p>© <span id="year">2026</span> Kaalkidan Sahele</p>
     </footer>
   </div>
 
